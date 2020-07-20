@@ -1,0 +1,65 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} homepage {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+
+<main class="c-main">
+          <div class="container-fluid">
+            <div class="fade-in">
+              <div class="row">
+                 <div class="col-lg-12">
+                  <div class="card">
+                    <div class="card-body">
+                      <table class="table table-responsive-sm table-bordered">
+                        <thead>
+                          <tr>
+                            <th align="center">新聞<small>(各式各樣)</small></th>
+                            <th align="center">新聞<small>(標的股)</small></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <div class="list-group">
+                                <a class="list-group-item active" href="#">1</a>
+                                <a class="list-group-item list-group-item-action" href="#">2</a>
+                                <a class="list-group-item list-group-item-action" href="#">3</a>
+                                <a class="list-group-item list-group-item-action" href="#">4</a>
+                                <a class="list-group-item list-group-item-action" href="#">5</a>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="list-group">
+                                 <a class="list-group-item active" href="#">1</a>
+                                <a class="list-group-item list-group-item-action" href="#">2</a>
+                                <a class="list-group-item list-group-item-action" href="#">3</a>
+                                <a class="list-group-item list-group-item-action" href="#">4</a>
+                                <a class="list-group-item list-group-item-action" href="#">5</a>
+                              </div>
+                            </td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+                <!-- /.col-->
+              </div>
+
+            </div>
+          </div>
+        </main>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

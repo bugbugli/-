@@ -1,0 +1,187 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} programorder {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+ <main class="c-main">
+                <div class="container-fluid">
+                    <div class="fade-in">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <table class="table table-responsive-sm table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <div class="col-md-4">
+                                                        <td align="center" colspan="2"><strong>下單區</strong></td>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <td align="center" colspan="6"><strong>即時資訊</strong></td>
+                                                    </div>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>商品</td>
+                                                    <td>
+                                                        <div class="col-md-6">
+                                                            <input class="form-control" id="TxtAssetCode" type="text" name="TxtAssetCode" placeholder="代碼">
+                                                        </div>
+                                                    </td>
+                                                    <td align="center">
+										            	<ul class="nav">
+															<li class="nav-item"><a class="nav-link active" href="#">5分</a></li>
+														</ul>
+										            </td>
+                                                    <td align="center">
+                                                   	 	<ul class="nav">
+															<li class="nav-item"><a class="nav-link active" href="#">15分</a></li>
+														</ul></td>
+                                                    <td align="center">
+                                                    	<ul class="nav">
+															<li class="nav-item"><a class="nav-link active" href="#">30分</a></li>
+														</ul></td>
+                                                    <td align="center">
+                                                    	<ul class="nav">
+															<li class="nav-item"><a class="nav-link active" href="#">60分</a></li>
+														</ul></td>
+                                                    <td align="center">
+                                                    	<ul class="nav">
+															<li class="nav-item"><a class="nav-link active" href="#">日</a></li>
+														</ul></td>
+
+                                                </tr>
+
+                                                <tr>
+                                                    <td>投入資金</td>
+                                                    <td>
+                                                        <div class="col-md-6">
+                                                            <select class="form-control form-control-sm" id="type" name="type">
+                                                                <option value="LMTU">定期定額</option>
+                                                                <option value="LMTD">一次性投入</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                    <td align="center" rowspan="5" colspan="5"></td>
+
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td>策略</td>
+                                                    <td>
+                                                        <div class="col-md-6">
+                                                            <select class="form-control form-control-sm" id="category" name="category">
+                                                                <option value="LMTU">選策略阿朋友</option>
+                                                                <option value="LMT">策略1</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>停損</td>
+                                                    <td>
+                                                    	<div class="col-sm-4">
+                                                       		<input class="form-control" id="stop-loss" type="text" name="stop-loss" placeholder="%">
+                                                       </div>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>停利</td>
+                                                    <td>
+                                                    	<div class="col-sm-4">
+                                                       		<input class="form-control" id="take-profit" type="text" name="take-profit" placeholder="%">
+                                                       	</div>
+                                                    </td>
+                                                </tr>
+                                                 <tr>
+                                                    <td colspan="2"> <button class="btn btn-outline-warning btn-lg btn-block" type="button">下單</button></td>
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- /.col-->
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="nav-tabs-boxed">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#委託回報" role="tab" aria-controls="委託回報">委託回報</a></li>
+                                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#成交回報" role="tab" aria-controls="成交回報">成交回報</a></li>
+                                </ul>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="委託回報" role="tabpanel">
+                                        <div id="spy-example2" data-spy="scroll" data-target="#list-example" data-offset="0" style="height: 200px; overflow: auto">
+                                        <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                                            <tr>
+                                                <td align="center"><strong>公司代碼</strong></td>
+                                                <td align="center"><strong>公司名稱</strong></td>
+                                                <td align="center"><strong>買/賣</strong></td>
+                                                <td align="center"><strong>價格</strong></td>
+                                                <td align="center"><strong>數量</strong></td>
+                                                <td align="center"><strong>停止</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">我</td>
+                                                <td align="center">是</td>
+                                                <td align="center">委</td>
+                                                <td align="center">託</td>
+                                                <td align="center">回</td>
+                                                <td align="center" valign="center">
+                                                       <label class="c-switch c-switch-label c-switch-danger">
+                                                        <input class="c-switch-input" type="checkbox" checked=""><span class="c-switch-slider" data-checked="start" data-unchecked="stop"></span>
+                                                    </label>
+                                                </td>
+
+
+                                            </tr>
+                                        </table>
+                                       </div>
+                                    </div>
+                                    <div class="tab-pane" id="成交回報" role="tabpanel">
+                                        <div id="spy-example2" data-spy="scroll" data-target="#list-example" data-offset="0" style="height: 200px; overflow: auto">
+                                        <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                                            <tr>
+                                                <td align="center"><strong>公司代碼</strong></td>
+                                                <td align="center"><strong>公司名稱</strong></td>
+                                                <td align="center"><strong>買/賣</strong></td>
+                                                <td align="center"><strong>成交價</strong></td>
+                                                <td align="center"><strong>成交量</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center">是</td>
+                                                <td align="center">成</td>
+                                                <td align="center">交</td>
+                                                <td align="center">回</td>
+                                                <td align="center">報</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

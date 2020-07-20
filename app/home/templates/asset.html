@@ -1,0 +1,98 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} asset {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<main class="c-main">
+    <div class="container-fluid">
+        <div class="fade-in">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header"><i class="fa fa-align-justify"></i> <h3>持有資產</h3></div>
+                        <div class="card-body">
+                           <div id="spy-example2" data-spy="scroll" data-target="#list-example" data-offset="0" style="height: 200px; overflow: auto">
+                            {% if tt=='Success'%}
+                                <script>alert('委託成功!!可至掛單追蹤查詢其委託狀態!!');</script>
+                            {% elif tt=='Failure'%}
+                                <script>alert('委託失敗!!可至掛單追蹤查詢其委託狀態!!');</script>
+                            {% else %}
+                                <p>{{tt}}</p>
+
+                            {% endif %}
+
+                            <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                                <thead>
+                                    <tr>
+                                        <td align='center'><strong>商品代碼</strong></td>
+                                        <td align='center'><strong>商品名稱</strong></td>
+                                        <td align='center'><strong>持有數量</strong></td>
+                                        <td align='center'><strong>持有成本</strong></td>
+                                        <td align='center'><strong>現價</strong></td>
+                                        <td align='center'><strong>漲跌</strong></td>
+                                        <td align='center'><strong>盈虧</strong></td>
+                                        <td align='center'><strong>累積未實現損益</strong></td>
+                                        <td align='center'><strong>約當市值</strong></td>
+                                        <td align='center'><strong>市值比例</strong></td>
+                                        <td align='center'><strong>買</strong></td>
+                                        <td align='center'><strong>賣</strong></td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    {% for x in content%}
+                                    <tr>
+                                        {% for y in x%}
+                                        <td align="center">
+                                            {{y}}
+                                        </td>
+                                        {% endfor %}
+                                        <form action = '/asset.html' method="post">
+                                        <td align="center">
+                                            <input type="hidden" name="id" value="{{x[0]}}">
+                                            <input type="hidden" name="buy/sell" value="buy">
+                                            <button class="btn btn-sm btn-primary" type="submit">買</button>
+                                        </td>
+                                        </form>
+                                        <form action = '/asset.html' method="post">
+                                        <td align="center">
+                                            <input type="hidden" name="id" value="{{x[0]}}">
+                                            <input type="hidden" name="buy/sell" value="sell">
+                                            <button class="btn btn-sm btn-danger" type="submit">賣</button>
+                                        </td>
+                                        </form>
+                                    </tr>
+                                    {% endfor %}
+
+
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.col-->
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+<script>
+
+
+
+</script>
+
+
+{% endblock javascripts %}

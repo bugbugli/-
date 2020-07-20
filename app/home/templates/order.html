@@ -1,0 +1,271 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} order {% endblock %}
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+ <main class="c-main">
+        <div class="container-fluid">
+            <div class="fade-in">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="nav-tabs-boxed">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#下單區" role="tab" aria-controls="下單區">下單區</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#回測區" role="tab" aria-controls="回測區">回測區</a></li>
+                        </ul>
+                        <div class="card">
+
+                                <div class="tab-content">
+                                <div class="tab-pane active" id="下單區" role="tabpanel">
+                                <table class="table table-responsive-sm table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <div class="col-md-4">
+                                                <td align="center" colspan="2"><strong>下單區</strong></td>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <td align="center" colspan="6"><strong>即時資訊</strong></td>
+                                            </div>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>商品</td>
+                                            <td>
+                                                <div class="col-md-6">
+                                                    <input class="form-control" id="TxtAssetCode" type="text" name="TxtAssetCode" placeholder="代碼">
+                                                </div></td>
+                                                <td align="center">
+                                                    <ul class="nav">
+                                                        <li class="nav-item"><a class="nav-link active" href="#">5分</a></li>
+                                                    </ul>
+                                                </td>
+                                                <td align="center">
+                                                    <ul class="nav">
+                                                        <li class="nav-item"><a class="nav-link active" href="#">15分</a></li>
+                                                    </ul></td>
+                                                <td align="center">
+                                                    <ul class="nav">
+                                                        <li class="nav-item"><a class="nav-link active" href="#">30分</a></li>
+                                                    </ul></td>
+                                                <td align="center">
+                                                    <ul class="nav">
+                                                        <li class="nav-item"><a class="nav-link active" href="#">60分</a></li>
+                                                    </ul></td>
+                                                <td align="center">
+                                                    <ul class="nav">
+                                                        <li class="nav-item"><a class="nav-link active" href="#">日</a></li>
+                                                    </ul></td>
+                                                <td align="center">
+                                                    <ul class="nav">
+                                                        <li class="nav-item"><a class="nav-link active" href="#">月</a></li>
+                                                    </ul>
+                                                </td>
+
+
+                                        </tr>
+                                        <tr>
+                                            <td>交易</td>
+                                            <td>
+                                                <div class="col-md-6">
+                                                    <select class="form-control form-control-sm" id="transcation" name="transcation">
+                                                        <option value="LMTU">整股</option>
+                                                        <option value="LMTD">盤後</option>
+                                                        <option value="LMT">零股</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                             <td align="center" rowspan="7" colspan="6">
+                                                {% include 'pictures.html' %}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>種類</td>
+                                            <td>
+                                                <div class="col-md-6">
+                                                    <select class="form-control form-control-sm" id="type" name="type">
+                                                        <option value="LMTU">現股</option>
+                                                        <option value="LMTD">融資</option>
+                                                        <option value="LMT">融劵</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>條件</td>
+                                            <td>
+                                                <div class="col-md-6">
+                                                    <select class="form-control form-control-sm" id="condition" name="condition">
+                                                        <option value="LMTU">ROD</option>
+                                                        <option value="LMTD">FOK</option>
+                                                        <option value="LMT">IOC</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>類別</td>
+                                            <td>
+                                                <div class="col-md-6">
+                                                    <select class="form-control form-control-sm" id="category" name="category">
+                                                        <option value="LMTU">限價</option>
+                                                        <option value="LMT">市價</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>買賣</td>
+                                            <td>
+                                                <div class="col-md-6">
+                                                    <select class="form-control form-control-sm" id="buy" name="buy">
+                                                        <option value="LMTU">買進</option>
+                                                        <option value="LMT">賣出</option>
+                                                    </select>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                          <tr>
+                                             <td>價格</td>
+                                            <td>
+                                                <div class="col-md-6">
+                                                    <input class="form-control" id="price" type="text" name="price" placeholder="顯示目前市價">
+
+                                                </div></td>
+                                        </tr>
+                                         <tr>
+                                            <td colspan="2"> <button class="btn btn-warning btn-lg btn-block" type="button">下單</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="tab-pane" id="回測區" role="tabpanel">
+                                <table class="table table-responsive-sm table-bordered">
+                                    <tr>
+                                        <td>匯入資料</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">初始資金</td>
+                                        <td align="center">期末資金</td>
+                                        <td align="center">年化報酬率</td>
+                                        <td align="center">圖表</td>
+                                        <td align="center">技術指標</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td rowspan="5"></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">買進次數</td>
+                                        <td align="center">賣出次數</td>
+                                        <td align="center">累積報酬率</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">交易頻率</td>
+                                        <td align="center">獲利金額</td>
+                                        <td align="center">勝率</td>
+                                        <td align="center">報酬率長條圖</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                </table>
+                            </div>
+
+
+
+                            </div>
+                            </div>
+                    </div>
+                    <!-- /.col-->
+                </div>
+                <div class="col-lg-12">
+                    <div class="nav-tabs-boxed">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#委託回報" role="tab" aria-controls="委託回報">委託回報</a></li>
+                            <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#成交回報" role="tab" aria-controls="成交回報">成交回報</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="委託回報" role="tabpanel">
+                                <div id="spy-example2" data-spy="scroll" data-target="#list-example" data-offset="0" style="height: 200px; overflow: auto">
+                                <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                                    <tr>
+                                        <td align="center"><strong>公司代碼</strong></td>
+                                        <td align="center"><strong>公司名稱</strong></td>
+                                        <td align="center"><strong>掛單類型</strong></td>
+                                        <td align="center"><strong>買/賣</strong></td>
+                                        <td align="center"><strong>委託價</strong></td>
+                                        <td align="center"><strong>量/股</strong></td>
+                                        <td align="center"><strong>功能</strong></td>
+                                    </tr>
+
+                                        {% for x in content%}
+                                        <tr>
+                                            {% for y in x%}
+                                            <td align="center">
+                                                {{y}}
+                                            </td>
+                                            {% endfor %}
+                                            <form action = '/asset.html' method="post">
+                                            <td align="center">
+                                                <button class="btn btn-sm btn-success" type="submit">刪</button>
+                                                <button class="btn btn-sm btn-warning" type="reset">改</button>
+                                            </td>
+                                            </form>
+                                        </tr>
+                                        {% endfor %}
+                                </table>
+                            </div>
+
+                            </div>
+                            <div class="tab-pane" id="成交回報" role="tabpanel">
+                                <div id="spy-example2" data-spy="scroll" data-target="#list-example" data-offset="0" style="height: 200px; overflow: auto">
+                                <table class="table table-responsive-sm table-bordered table-striped table-sm">
+                                    <tr>
+                                        <td align="center"><strong>公司代碼</strong></td>
+                                        <td align="center"><strong>公司名稱</strong></td>
+                                        <td align="center"><strong>掛單類型</strong></td>
+                                        <td align="center"><strong>買/賣</strong></td>
+                                        <td align="center"><strong>成交價</strong></td>
+                                        <td align="center"><strong>成交量</strong></td>
+                                        <td align="center"><strong>成交時間</strong></td>
+                                    </tr>
+                                    {% for x in deal%}
+                                    <tr>
+                                        {% for y in x%}
+                                        <td align="center">
+                                            {{y}}
+                                        </td>
+                                        {% endfor %}
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                               </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

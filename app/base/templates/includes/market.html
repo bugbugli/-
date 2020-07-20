@@ -1,0 +1,42 @@
+ <link href="/static/assets/vendors/@coreui/icons/css/free.min.css" rel="stylesheet">
+ <div class="col-lg-6">
+     <table class="table table-responsive-sm table-bordered">
+         <thead>
+             <tr>
+                 <td align="center" bgcolor="#FFFFFF"><strong>指數名稱</strong> </td>
+                 <td align="center" bgcolor="#FFFFFF"><strong>指數</strong></td>
+                 <td align="center" bgcolor="#FFFFFF"><strong>漲跌指數</strong></td>
+             </tr>
+         </thead>
+         <tbody>
+
+
+             <tr>
+                 <td rowspan="2" align="center" valign="center">
+                     <font color="black">大盤指數</font>
+                 </td>
+
+
+
+                 {% if TWII[1]>0.0 %}
+                 <td align="center" bgcolor="#FFFFFF"><strong><font color="#e55353">{{TWII[0]}}</font></strong></td>
+                 <td align="center" bgcolor="#FFFFFF"><strong><font color="#e55353">&#9650;{{TWII[1]}}</font></strong></td>
+                 {% elif TWII[1]==0.0 %}
+                 <td align="center" bgcolor="#FFFFFF"><strong><font color="#3399ff">{{TWII[0]}}</font></strong></td>
+                 <td align="center" bgcolor="#FFFFFF"><strong><font color="#3399ff">{{TWII[1]}}</font></strong></td>
+                 {% else %}
+                 <td align="center" bgcolor="#FFFFFF"><strong><font color="#2eb85c">{{TWII[0]}}</font></strong></td>
+                 <td align="center" bgcolor="#FFFFFF"><strong><font color="#2eb85c">&#9660;{{TWII[1]}}</font></strong></td>
+                 {% endif %}
+
+             </tr>
+             <tr>
+                 <td align="center" bgcolor="#FFFFFF">成交值<br>{{TWII[2]}}(億)</td>
+                 <td align="center" bgcolor="#FFFFFF">成交張數<br>{{TWII[3]}}</td>
+
+             </tr>
+
+
+         </tbody>
+     </table>
+ </div>
